@@ -5885,6 +5885,18 @@ gatsby-telemetry@^1.3.27:
     node-fetch "2.6.0"
     uuid "3.4.0"
 
+"gatsby-theme-minimal@https://github.com/patrickarlt/gatsby-mdx-theme-reproduction-issue.git#gatsby-theme-minimal-v1.0.0-gitpkg":
+  version "1.0.0"
+  resolved "https://github.com/patrickarlt/gatsby-mdx-theme-reproduction-issue.git#a25604b3fe30e7382dc8edaa305218f7f22149b8"
+  dependencies:
+    "@mdx-js/mdx" "^1.6.16"
+    "@mdx-js/react" "^1.6.16"
+    "@rebass/preset" "^4.0.5"
+    emotion-theming "^10.0.27"
+    gatsby-plugin-mdx "^1.2.34"
+    rebass "^4.0.7"
+    typescript "^3.9.7"
+
 gatsby@^2.23.12:
   version "2.24.47"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.24.47.tgz#44f50af6304111c0e5b7f9e9b777103dc2245a93"

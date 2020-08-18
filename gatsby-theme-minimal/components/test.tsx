@@ -1,10 +1,11 @@
 import React from "react";
+import { Box } from "rebass";
 
 export default function Test({ children }) {
   return (
-    <div>
-      <code>Test Component</code>
+    <Box color="white" bg="primary">
+      <code>Inside Test Component</code>
       {children}
-    </div>
+    </Box>
   );
 }

@@ -1,64 +1,47 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Starter for creating a Gatsby Theme workspace
-</h1>
+# Gatsby/MDX Theme Issue Reproduction
 
-```shell
-gatsby new my-theme https://github.com/gatsbyjs/gatsby-starter-theme-workspace
-cd my-theme
-yarn workspace example develop
+This repo reproduces an error when using Gatsby Themes that include `gatsby-plugin-mdx` when using `npm`.
+
+This repo is based on https://github.com/gatsbyjs/gatsby-starter-theme-workspace.
+
+## Issue
+
+We publish a theme (`gatsby-theme-minimal`) to a tag on Github via `gitpkg`. This theme configures MDX via `gatsby-plugin-mdx`, configures pages and provides a component for rendering MDX files.
+
+Several additional components are added to the `<MDXProvider>` in the theme:
+
+```jsx
+<MDXProvider components={{ Box, Test }}>
+  <MDXRenderer>{mdx.body}</MDXRenderer>
+</MDXProvider>
 ```
 
-## Layout
+However when we install with `npm` in the `reproduction` folder we see this on the `/test/` page:
 
-```text
-.
-├── README.md
-├── gatsby-theme-minimal
-│   ├── README.md
-│   ├── gatsby-config.js
-│   ├── index.js
-│   └── package.json
-├── example
-│   ├── README.md
-│   ├── gatsby-config.js
-│   ├── package.json
-│   └── src
-├── package.json
-└── yarn.lock
+![2020-08-18_12-43-25](https://user-images.githubusercontent.com/378557/90558506-0888b900-e151-11ea-9ef1-6885bc044cbb.png)
 
-3 directories, 10 files
+We also see the following message in the console:
+
+```
+Component Box was not imported, exported, or provided by MDXProvider as global scope commons.js line 5071 > Function:14:13
+Component Test was not imported, exported, or provided by MDXProvider as global scope commons.js line 5071 > Function:14:13
+Component Box was not imported, exported, or provided by MDXProvider as global scope
 ```
 
-### `gatsby-theme-minimal`
+Installing with `yarn` in the reproduction folder produces this on the `/test/` page:
 
-This directory is the theme package itself. You should rename this at
-some point to be `gatsby-theme-{my-theme-name}`. Also change the
-`package.json` name field and the corresponding dependency in the
-example directory's `package.json`/`gatsby-config.js` to match the chosen name.
+![2020-08-18_13-04-18](https://user-images.githubusercontent.com/378557/90560069-661e0500-e153-11ea-9bfa-281e40320d88.png)
 
-- `gatsby-theme-minimal/`
-  - `gatsby-config.js`: An empty gatsby-config that you can use as a starting point for building functionality into your theme.
-  - `index.js`: Since themes also function as plugins, this is an empty file that
-    gatsby needs to use this theme as a plugin.
-  - `package.json`: The dependencies that your theme will pull in when people install it. `gatsby` should be a `peerDependency`.
+## Reproduction Steps:
 
-### `example`
-
-This is an example usage of your theme. It should look the same as the
-site of someone who installed and used your theme from npm.
-
-- `example/`
-  - `gatsby-config.js`: Specifies which theme to use and any other one-off config a site might need.
-  - `src/`: Source code such as one-off pages or components that might live in
-    a user's site.
-
-You can run the example with:
-
-```shell
-yarn workspace example develop
-```
+1. Clone this repo
+2. `cd reproduction`
+3. `npm install`
+4. `gatsby develop`
+5. Note the styling on `/test/`
+6. Kill the server
+7. `gatsby clean`
+8. Delete `package-lock.json` and `node_modules`
+9. `yarn install`
+10. `gatsby develop`
+11. Note the styling on `/test/`
