@@ -1,0 +1,48 @@
+Arguments: 
+  /Users/patr7104/.nvm/versions/node/v12.16.3/bin/node /Users/patr7104/.nvm/versions/node/v12.16.3/bin/yarn install
+
+PATH: 
+  /Users/patr7104/.nvm/versions/node/v12.16.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/patr7104/.nvm/versions/node/v12.16.3/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.16.3
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/patr7104/Projects/my-mdx-v2-starter/my-mdx-v2-theme/example/package.json: Unexpected token , in JSON at position 374
+      at JSON.parse (<anonymous>)
+      at /Users/patr7104/.nvm/versions/node/v12.16.3/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/Users/patr7104/.nvm/versions/node/v12.16.3/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /Users/patr7104/.nvm/versions/node/v12.16.3/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "example",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "christopherbiscardi <chris@christopherbiscardi.com> (@chrisbiscardi)",
+    "license": "MIT",
+    "scripts": {
+      "develop": "gatsby develop",
+      "build": "gatsby build"
+    },
+    "dependencies": {
+      "gatsby": "^2.23.12",
+      "gatsby-theme-minimal": "^1.0.0",
+      "gatsby-source-filesystem@^2.1.41",
+      "react": "^16.12.0",
+      "react-dom": "^16.12.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
