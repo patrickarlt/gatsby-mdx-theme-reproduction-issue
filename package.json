@@ -1,0 +1,19 @@
+{
+  "name": "gatsby-theme-minimal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "christopherbiscardi <chris@christopherbiscardi.com> (@chrisbiscardi)",
+  "license": "MIT",
+  "peerDependencies": {
+    "gatsby": "^2.24.47"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.16",
+    "@mdx-js/react": "^1.6.16",
+    "@rebass/preset": "^4.0.5",
+    "emotion-theming": "^10.0.27",
+    "gatsby-plugin-mdx": "^1.2.34",
+    "rebass": "^4.0.7",
+    "typescript": "^3.9.7"
+  }
+}
